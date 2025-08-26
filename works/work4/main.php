@@ -4,7 +4,7 @@
 require 'User.php';
 
 $mainUser = new User(1111, "田中", 21, 111);
-$subUser = new User(2222, "伊藤", 21, 111);
+$subUser = new User(2222, "伊藤", 99, 111);
 
 showUserStatus($mainUser);
 showUserStatus($subUser);
@@ -12,6 +12,8 @@ showUserStatus($subUser);
 $mainUser->setName("佐藤");
 $mainUser->setAge(30);
 $mainUser->getolder();
+$mainUser->getolder();
+$subUser->getOlder();
 
 showUserStatus($mainUser);
 showUserStatus($subUser);
