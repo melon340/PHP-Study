@@ -12,9 +12,12 @@ class Gun
     // ↑フィールド============================
 
     // コンストラクタ
-    function __construct($name, $maxMagazine)
+    function __construct($name, $maxMagazine, $currentMagazine)
     {
         // 問題1
+        $this->name = $name;
+        $this->maxMagazine = $maxMagazine;
+        $this->currentMagazine = $currentMagazine;
     }
 
     // 現在の状態を表示
@@ -28,15 +31,21 @@ class Gun
     }
 
     // リロード
-    function relaod()
+    function reload()
     {
         // 問題2
+        if ($this->currentMagazine == $this->maxMagazine) {
+            echo "リロードの必要はありません";
+            return;
+        }
+        $this->currentMagazine = $this->maxMagazine;
     }
 
     // 発砲
     function fire()
     {
         // 問題3
+
     }
 
     // 拡張マガジンを装着
