@@ -35,7 +35,7 @@ class Gun
     {
         // 問題2
         if ($this->currentMagazine == $this->maxMagazine) {
-            echo "リロードの必要はありません";
+            echo "リロードの必要はありません\n";
             return;
         }
         $this->currentMagazine = $this->maxMagazine;
@@ -45,13 +45,27 @@ class Gun
     function fire()
     {
         // 問題3
-
+        if ($this->currentMagazine == 0) {
+            echo "リロードしてください\n";
+            return;
+        }
+        $this->currentMagazine--;
+        echo "$this->name を発砲しました。残弾： $this->currentMagazine 発\n";
+        if ($this->currentMagazine == 0) {
+            echo "リロードしてください\n";
+        }
     }
 
     // 拡張マガジンを装着
-    function setExtendedMagazine()
+    function setExtendedMagazine($extendNum)
     {
         // 問題4
+        if (!is_int(filter_var($extendNum, \FILTER_VALIDATE_INT,  ['options' => ['min_range' => 1]]))) {
+            if (!is_numeric($extendNum) && intval($extendNum) == $extendNum > 0) {
+                echo "引数は不正です\n";
+                return;
+            }
+        }
     }
 
     // 拡張マガジンを取外し
